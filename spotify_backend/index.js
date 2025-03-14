@@ -16,18 +16,21 @@ const port=8080;
 app.use(cors());
 app.use(express.json()); 
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/Spotify"; 
-   
-main().then(()=>{
-    console.log("connected to MDB");
-})
-.catch((err)=>{
-    console.log(err);
-});
 
-async function main(){
-    await mongoose.connect(MONGO_URL);
-}
+mongoose.connect("mongodb+srv://pariharajit5:OpdF1u46WbzIMhgB@spotify.b3ezq.mongodb.net/?retryWrites=true&w=majority&appName=Spotify")
+
+// const MONGO_URL = "mongodb://127.0.0.1:27017/Spotify"; 
+   
+// main().then(()=>{
+//     console.log("connected to MDB");
+// })
+// .catch((err)=>{
+//     console.log(err);
+// });
+
+// async function main(){
+//     await mongoose.connect(MONGO_URL);
+// }
 
 //setup passport-jwt
 

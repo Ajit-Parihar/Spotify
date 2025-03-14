@@ -16,7 +16,7 @@ router.post("/create",passport.authenticate("jwt",{session:false}),  async (req,
     const artist = req.user._id;
     const songDetails = {name, thumbnail,track, ArtistProducer, movieName, artist};
 
-    // const createdSong = await Song.create(songDetails);
+     const createdSong = await Song.create(songDetails);
 
     return res.status(200).json(createdSong); 
 });
@@ -24,8 +24,8 @@ router.post("/create",passport.authenticate("jwt",{session:false}),  async (req,
 //get route to get all songs I have published
 router.get("/get/mysongs",passport.authenticate("jwt",{session:false}), async(req,res)=>{
  
-    // const songs = await Song.find({artist: req.user._id}).populate("artist"); 
-    const songs = await Song.find({artist: ObjectId("6789c070c86be8da9013e581")}).populate("artist"); 
+     const songs = await Song.find({artist: req.user._id}).populate("artist"); 
+    // const songs = await Song.find({artist: ObjectId("6789c070c86be8da9013e581")}).populate("artist"); 
     return res.status(200).json({data:songs});
 });
 
